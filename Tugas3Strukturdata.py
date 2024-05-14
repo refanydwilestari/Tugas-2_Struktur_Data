@@ -38,3 +38,21 @@ class Map():
             del self.daftarKota[kota1][kota2]
             del self.daftarKota[kota2][kota1]
           
+kotaKota = ["Semarang", "Salatiga", "Pekalongan", "Magelang", "Tegal", "Surakarta", "Kudus", "Klaten", "Jepara", "Purwodadi", "Demak"]
+
+petaJawatengah = Map()
+for kota in kotaKota:
+    petaJawatengah.tambahkanKota(kota)
+
+petaJawatengah.tambahkanJalan("Semarang", {"Salatiga": 61, "Pekalongan": 94, "Magelang": 83})
+petaJawatengah.tambahkanJalan("Salatiga", {"Tegal": 219, "Surakarta": 61, "Magelang": 82})
+petaJawatengah.tambahkanJalan("Magelang", {"Kudus": 134, "Klaten": 79, "Jepara": 154})
+petaJawatengah.tambahkanJalan("Purwodadi", {"Demak": 39, "Pekalongan": 169, "Kudus": 47})
+petaJawatengah.tambahkanJalan("Demak", {"Tegal": 209, "Semarang": 36, "Klaten": 149})
+
+print("=== Peta Jawa Tengah ===")
+petaJawatengah.tampilkanPeta()
+
+[jarak, rute] = petaJawatengah.dijkstra("Semarang")
+print(jarak)
+print(rute)
